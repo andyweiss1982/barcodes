@@ -55,6 +55,9 @@ gem "httparty"
 gem "rturk"
 gem "griddler"
 gem "griddler-sendgrid"
+gem "zbar", require: false #added AW
+gem "barby"
+gem 'rmagick'
 
 group :development do
   gem "spring"
@@ -68,6 +71,7 @@ group :development do
   gem 'better_errors' # added JP
   gem 'binding_of_caller' # added JP
   gem "rails-erd" #added JP
+  gem "thin"
 end
 
 group :development, :test do
