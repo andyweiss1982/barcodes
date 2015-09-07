@@ -27,21 +27,7 @@ class BarcodesController < ApplicationController
   def create
     @barcode = Barcode.new(barcode_params)
     
-    input = Barby::Code128B.new(@barcode.content)
-    
-    outputter = Barby::RmagickOutputter.new(input)
-    outputter.to_jpg    
-
-    unique_string = Time.now.to_i.to_s
-
-    File.open("#{Rails.root}/tmp/#{unique_string}barcode.jpg",'wb') do |f|
-      f.write input.to_jpg(height: 50, xdim: 3)
-    end
-
-    File.open("#{Rails.root}/tmp/#{unique_string}barcode.jpg",'r') do |f|
-      @barcode.image = f
-      @barcode.image_content_type = "image/jpg"
-    end
+    BarcodeImageGenerator.new(@barcode).run
 
     if @barcode.save
       redirect_to @barcode, notice: 'Barcode was successfully created.'
