@@ -5,16 +5,6 @@ class BarcodesController < ApplicationController
   require 'barby/barcode/code_128'
   require 'barby/outputter/rmagick_outputter'
 
-
-
-
-
-
-
-
-
-
-
   # GET /barcodes
   def index
     @barcodes = Barcode.all
@@ -52,15 +42,6 @@ class BarcodesController < ApplicationController
       @barcode.image = f
       @barcode.image_content_type = "image/jpg"
     end
-
-    # file = Tempfile.new('barcode')
-    # file.write input.to_jpg(height: 50, xdim: 3)
-
-    # @barcode.image = file
-    # @barcode.image_content_type = "image/jpg"
-
-    # file.close
-    # file.unlink
 
     if @barcode.save
       redirect_to @barcode, notice: 'Barcode was successfully created.'
