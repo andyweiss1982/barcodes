@@ -1,13 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Content:</strong>
   <%= @barcode.content %>
 </p>
 
-<%= image_tag(@barcode.image.url) %>
-
-<br>
-
-<%= link_to 'Edit', edit_barcode_path(@barcode) %> |
-<%= link_to 'Back', barcodes_path %>
+<%= image_tag @barcode.image.url, width: 300 %>
