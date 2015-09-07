@@ -7,6 +7,13 @@ class BarcodesController < ApplicationController
 
   # GET /barcodes/1
   def show
+    respond_to do |format|
+      format.html {}
+      format.jpg do
+        data = open(@barcode.image.url) 
+        send_data data.read, filename: "barcode.jpg"
+      end
+    end
   end
 
   # GET /barcodes/new

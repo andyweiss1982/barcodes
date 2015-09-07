@@ -1,6 +1,13 @@
 <p>
-  <strong>Content:</strong>
+  <strong>Content:</strong><br>
   <%= @barcode.content %>
 </p>
 
-<%= image_tag @barcode.image.url, width: 300 %>
+<p>
+  <strong>Barcode:</strong><br>
+  <%= image_tag @barcode.image.url, width: 300 %>
+</p>
+
+<%= link_to barcode_path(@barcode, format: :jpg) do %>
+  <%= button_tag 'Download' %>
+<% end %>

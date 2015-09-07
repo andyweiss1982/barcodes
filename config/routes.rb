@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'scans#new'
+  get 'home/index'
+  root 'home#index'
 
   resources :barcodes, only: [:new, :create, :show]
   resources :scans, only: [:new, :create, :show]

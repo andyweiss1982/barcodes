@@ -1,6 +1,9 @@
 <p>
-  <strong>Content:</strong>
-  <%= @scan.content %>
+  <strong>Barcode:</strong><br>
+  <%= image_tag @scan.image.url, width: 300 %>  
 </p>
 
-<%= image_tag @scan.image.url, width: 300 %>
+<p>
+  <strong>Content:</strong><br>
+  <%= @scan.content %>
+</p>
