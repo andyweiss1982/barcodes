@@ -2,4 +2,13 @@
   @include outer-container(80%);
   margin-top: 2em;
   text-align: center;
+
+  #scan_image {
+    @include span-columns(4 of 12);
+    @include shift(4);
+  }
+
+  .form-actions {
+    @include span-columns(12 of 12);
+  }
 }
