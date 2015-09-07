@@ -1,9 +1,10 @@
-class Barcode < ActiveRecord::Base
+class Scan < ActiveRecord::Base
   has_attached_file :image,
     storage: :s3,
     s3_credentials: Proc.new{|a| a.instance.s3_credentials }
   validates_attachment :image, presence: true,
     content_type: { content_type: ["image/jpeg", "image/jpg"] }
+  validates :content, presence: true
 
   def s3_credentials
     {
@@ -12,5 +13,5 @@ class Barcode < ActiveRecord::Base
       secret_access_key: ENV['AWS_SECRET_KEY']
     }
   end
-  
+
 end

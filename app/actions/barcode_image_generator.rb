@@ -6,11 +6,14 @@ class BarcodeImageGenerator
   end
 
   def run
-    define_outputter
-    unique_string = unique_timestamp
+    begin
+      define_outputter
+      unique_string = unique_timestamp
 
-    write_file(unique_string)
-    associate_image_with_barcode(unique_string)
+      write_file(unique_string)
+      associate_image_with_barcode(unique_string)
+    rescue
+    end
   end
 
   def barby

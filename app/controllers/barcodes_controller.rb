@@ -17,13 +17,12 @@ class BarcodesController < ApplicationController
   # POST /barcodes
   def create
     @barcode = Barcode.new(barcode_params)
-    
     BarcodeImageGenerator.new(@barcode).run
 
     if @barcode.save
       redirect_to @barcode, notice: 'Barcode was successfully created.'
     else
-      render :new
+      redirect_to new_barcode_path, notice: 'There was a problem with your submission.'
     end
   end
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'barcodes#new'
+  root 'scans#new'
 
   resources :barcodes, only: [:new, :create, :show]
+  resources :scans, only: [:new, :create, :show]
 end
