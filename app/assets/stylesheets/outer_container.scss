@@ -4,13 +4,11 @@
   text-align: center;
 
   #scan_image {
-    width: 33%;
-    margin-left: 33%;
-    position: absolute; 
+    display: inline-block;
+    max-width: 13em;    
   }
 
   .form-actions {
     @include span-columns(12 of 12);
-    margin-top: 3em;
   }
 }
