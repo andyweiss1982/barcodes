@@ -14,8 +14,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "flashes" %>
   <%= render "refills/centered_navigation" %>
+  <%= render "flashes" %>
   <div class="main-wrapper">
     <%= yield %>
   </div>
