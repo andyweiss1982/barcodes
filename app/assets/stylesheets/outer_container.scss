@@ -3,12 +3,18 @@
   margin-top: 2em;
   text-align: center;
 
-  #scan_image {
-    @include span-columns(4 of 12);
-    @include shift(4);
+  .scan_image {
+
+    #scan_image {
+      width: 33%;
+      margin-left: 33%;
+      position: absolute; 
+    }
+
   }
 
   .form-actions {
     @include span-columns(12 of 12);
+    margin-top: 3em;
   }
 }
