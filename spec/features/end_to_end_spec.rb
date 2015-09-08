@@ -37,7 +37,7 @@ describe "User makes a bar code, saves it and then scans the barcode" do |variab
     click_button "Scan"
 
     expect(page).to have_css('.scans-show')
-    expect(Barcode.count).to eq(1)
+    expect(Scan.count).to eq(1)
 
     expect(page).to have_content @barcode_string
 
