@@ -3,7 +3,7 @@ class Scan < ActiveRecord::Base
     storage: :s3,
     s3_credentials: Proc.new{|a| a.instance.s3_credentials }
   validates_attachment :image, presence: true,
-    content_type: { content_type: ["image/jpeg", "image/jpg"] }
+    content_type: { content_type: /\Aimage\/.*\Z/ }
   validates :content, presence: true
 
   def s3_credentials
