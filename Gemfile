@@ -54,8 +54,6 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "simplecov", require: false
   gem "timecop"
-  gem "webmock"
-  gem 'pdf-inspector', :require => "pdf/inspector"
   gem "selenium-webdriver"
 end
 

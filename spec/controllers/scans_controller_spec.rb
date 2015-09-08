@@ -36,15 +36,7 @@ RSpec.describe ScansController, type: :controller do
   # ScansController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all scans as @scans" do
-      scan = Scan.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:scans)).to eq([scan])
-    end
-  end
-
-  describe "GET #show" do
+  xdescribe "GET #show" do
     it "assigns the requested scan as @scan" do
       scan = Scan.create! valid_attributes
       get :show, {:id => scan.to_param}, valid_session
@@ -52,22 +44,14 @@ RSpec.describe ScansController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  xdescribe "GET #new" do
     it "assigns a new scan as @scan" do
       get :new, {}, valid_session
       expect(assigns(:scan)).to be_a_new(Scan)
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested scan as @scan" do
-      scan = Scan.create! valid_attributes
-      get :edit, {:id => scan.to_param}, valid_session
-      expect(assigns(:scan)).to eq(scan)
-    end
-  end
-
-  describe "POST #create" do
+  xdescribe "POST #create" do
     context "with valid params" do
       it "creates a new Scan" do
         expect {
@@ -97,62 +81,6 @@ RSpec.describe ScansController, type: :controller do
         post :create, {:scan => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested scan" do
-        scan = Scan.create! valid_attributes
-        put :update, {:id => scan.to_param, :scan => new_attributes}, valid_session
-        scan.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested scan as @scan" do
-        scan = Scan.create! valid_attributes
-        put :update, {:id => scan.to_param, :scan => valid_attributes}, valid_session
-        expect(assigns(:scan)).to eq(scan)
-      end
-
-      it "redirects to the scan" do
-        scan = Scan.create! valid_attributes
-        put :update, {:id => scan.to_param, :scan => valid_attributes}, valid_session
-        expect(response).to redirect_to(scan)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the scan as @scan" do
-        scan = Scan.create! valid_attributes
-        put :update, {:id => scan.to_param, :scan => invalid_attributes}, valid_session
-        expect(assigns(:scan)).to eq(scan)
-      end
-
-      it "re-renders the 'edit' template" do
-        scan = Scan.create! valid_attributes
-        put :update, {:id => scan.to_param, :scan => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested scan" do
-      scan = Scan.create! valid_attributes
-      expect {
-        delete :destroy, {:id => scan.to_param}, valid_session
-      }.to change(Scan, :count).by(-1)
-    end
-
-    it "redirects to the scans list" do
-      scan = Scan.create! valid_attributes
-      delete :destroy, {:id => scan.to_param}, valid_session
-      expect(response).to redirect_to(scans_url)
     end
   end
 

@@ -5,7 +5,7 @@
 
 <p>
   <strong>Barcode:</strong><br>
-  <%= image_tag @barcode.image.url, width: 300 %>
+  <%= image_tag @barcode.image.url, width: 300, id: "barcode_image" %>
 </p>
 
 <%= link_to barcode_path(@barcode, format: :jpg) do %>

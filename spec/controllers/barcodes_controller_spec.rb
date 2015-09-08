@@ -36,15 +36,7 @@ RSpec.describe BarcodesController, type: :controller do
   # BarcodesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all barcodes as @barcodes" do
-      barcode = Barcode.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:barcodes)).to eq([barcode])
-    end
-  end
-
-  describe "GET #show" do
+  xdescribe "GET #show" do
     it "assigns the requested barcode as @barcode" do
       barcode = Barcode.create! valid_attributes
       get :show, {:id => barcode.to_param}, valid_session
@@ -52,22 +44,14 @@ RSpec.describe BarcodesController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  xdescribe "GET #new" do
     it "assigns a new barcode as @barcode" do
       get :new, {}, valid_session
       expect(assigns(:barcode)).to be_a_new(Barcode)
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested barcode as @barcode" do
-      barcode = Barcode.create! valid_attributes
-      get :edit, {:id => barcode.to_param}, valid_session
-      expect(assigns(:barcode)).to eq(barcode)
-    end
-  end
-
-  describe "POST #create" do
+  xdescribe "POST #create" do
     context "with valid params" do
       it "creates a new Barcode" do
         expect {
@@ -97,62 +81,6 @@ RSpec.describe BarcodesController, type: :controller do
         post :create, {:barcode => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested barcode" do
-        barcode = Barcode.create! valid_attributes
-        put :update, {:id => barcode.to_param, :barcode => new_attributes}, valid_session
-        barcode.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested barcode as @barcode" do
-        barcode = Barcode.create! valid_attributes
-        put :update, {:id => barcode.to_param, :barcode => valid_attributes}, valid_session
-        expect(assigns(:barcode)).to eq(barcode)
-      end
-
-      it "redirects to the barcode" do
-        barcode = Barcode.create! valid_attributes
-        put :update, {:id => barcode.to_param, :barcode => valid_attributes}, valid_session
-        expect(response).to redirect_to(barcode)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the barcode as @barcode" do
-        barcode = Barcode.create! valid_attributes
-        put :update, {:id => barcode.to_param, :barcode => invalid_attributes}, valid_session
-        expect(assigns(:barcode)).to eq(barcode)
-      end
-
-      it "re-renders the 'edit' template" do
-        barcode = Barcode.create! valid_attributes
-        put :update, {:id => barcode.to_param, :barcode => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested barcode" do
-      barcode = Barcode.create! valid_attributes
-      expect {
-        delete :destroy, {:id => barcode.to_param}, valid_session
-      }.to change(Barcode, :count).by(-1)
-    end
-
-    it "redirects to the barcodes list" do
-      barcode = Barcode.create! valid_attributes
-      delete :destroy, {:id => barcode.to_param}, valid_session
-      expect(response).to redirect_to(barcodes_url)
     end
   end
 
