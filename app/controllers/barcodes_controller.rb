@@ -24,9 +24,9 @@ class BarcodesController < ApplicationController
   # POST /barcodes
   def create
     @barcode = Barcode.new(barcode_params)
-    BarcodeImageGenerator.new(@barcode).run
-
+    unique_string = BarcodeImageGenerator.new(@barcode).run
     if @barcode.save
+      File.delete("#{Rails.root}/tmp/#{unique_string}barcode.jpg")
       redirect_to @barcode, notice: 'Barcode was successfully created.'
     else
       redirect_to new_barcode_path, notice: 'There was a problem with your submission.'

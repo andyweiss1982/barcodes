@@ -14,6 +14,7 @@ class BarcodeImageGenerator
       associate_image_with_barcode(unique_string)
     rescue
     end
+    unique_string
   end
 
   def barby

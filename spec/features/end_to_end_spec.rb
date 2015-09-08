@@ -39,6 +39,8 @@ describe "User makes a bar code, saves it and then scans the barcode" do |variab
     expect(page).to have_css('.scans-show')
     expect(Scan.count).to eq(1)
 
+    File.delete("#{Rails.root}/tmp/test_barcode.jpg")
+
     expect(page).to have_content @barcode_string
 
   end
